@@ -24,7 +24,7 @@ import Treino from "./scr/tabs/Treino";
 import Perfil from "./scr/tabs/Perfil";
 import Home from "./scr/tabs/Home";
 import Matricula from "./scr/tabs/Matricula";
-
+import Video from "./scr/tabs/videos";
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -64,10 +64,21 @@ function PerfilStack() {
   );
 }
 
+function VideoStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Perfil" component={Video} />
+    </Stack.Navigator>
+  );
+}
+
 // Função para criar as tabs usando as stacks definidas acima
 function MyTabs() {
   return (
     <Tab.Navigator>
+
+
+
       <Tab.Screen
         name="HomeTab"
         component={HomeStack}
@@ -78,6 +89,18 @@ function MyTabs() {
           tabBarLabel: "Home",
         }}
       />
+
+      <Tab.Screen
+        name="Vídeos"
+        component={VideoStack}
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <Entypo name="video" color="#34495e" size={26} />
+          ),
+        }}
+      />
+
+
       <Tab.Screen
         name="Aula"
         component={AulaStack}
